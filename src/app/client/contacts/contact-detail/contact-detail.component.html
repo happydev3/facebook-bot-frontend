@@ -1,0 +1,120 @@
+<div  class="page-layout simple fullwidth" fxLayout="column">
+    <!-- HEADER -->
+    <div class="header accent p-24 h-160" fxLayout="row" fxLayoutAlign="start center">
+        <div fxLayout="column" fxLayoutAlign="center start">                   
+            
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <button mat-icon-button class = "mr-0 mr-sm-16" [routerLink] = "'/client/contacts'">
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+                <div class="h2">Back to Contact List</div>
+            </div>               
+            
+        </div>           
+        
+    </div>
+    <!-- / HEADER -->
+    <!-- CONTENT -->
+    <div class="content p-24">
+        <div fxLayout="column" fxLayoutAlign="start" fxLayout.gt-md="row">
+            <div fxLayout="row" fxLayoutAlign="center stretch" fxFlex="1 0 auto">
+                <div class="mat-card"  fxFlex="50">
+                    <mat-nav-list >
+                        <h3 mat-subheader>Charlie Adams </h3>
+                        <a mat-list-item >
+                            <mat-icon class="hint-text mr-8">category</mat-icon>                            
+                            <mat-form-field >                                                         
+                                <mat-select [(value)]="inConnection.label" (selectionChange)="selectChangeLabel($event)">
+                                    <mat-option>None</mat-option>
+                                    <mat-option value="not_interested">Not Interest</mat-option>
+                                    <mat-option value="spark">Spark</mat-option>
+                                    <mat-option value="heating_up">Heating Up</mat-option>
+                                    <mat-option value="burning_hot">Burning Hot</mat-option>
+                                    <mat-option value="drip">Drip</mat-option>                                    
+                                    <mat-option value="converted">Converted</mat-option>
+                                    <mat-option value="neutral">Neutral</mat-option>
+                                </mat-select>                                                                
+                            </mat-form-field>
+                        </a>     
+
+                        <a mat-list-item class="email">
+                            <mat-icon class="hint-text mr-8">email</mat-icon>
+                            {{contact.email}}
+                        </a>
+                        <a mat-list-item >
+                            <mat-icon class="hint-text mr-8">local_phone</mat-icon>
+                            {{contact.phone}}
+                        </a>
+                        <a mat-list-item >
+                            <mat-icon class="hint-text mr-8">business</mat-icon>
+                            {{contact.company}}
+                        </a>
+                        <a mat-list-item >
+                            <mat-icon class="hint-text mr-8">devices_other</mat-icon>
+                            Other informations
+                        </a>
+                        
+                    </mat-nav-list>                        
+                </div>               
+                <div class = "mat-card ml-20 p-20" fxFlex = "50" fxLayout="column">
+                    <div class = "h3">Set Reminder</div>
+                    <div fxLayout="row" fxLayoutAlign="space-around center" fxFlex="1 0 auto">
+                        <p class = ""> Follow up in</p>
+                        <mat-slider id="change"
+                            class=""
+                            [max]="100"
+                            [min]="1"
+                            [step]="1"
+                            [thumbLabel]="true"
+                            [vertical]="true"
+                            [(ngModel)] = 'inConnection.reminder'
+                            (change)="remiderChange($event)">
+                        </mat-slider>
+                        <p class = "">days</p>                       
+                    </div>                        
+                    <div fxLayout="row" fxLayoutAlign="space-around start" fxFlex="1 0 auto" class = "mt-20">
+                        <div fxLayout="row" fxLayoutAlign="space-around center" fxFlex="1 0 auto">
+                            <div fxLayout="column" fxLayoutAlign="space-around center">
+                                <p class = "" >Send Email</p>
+                                <button mat-fab  (click)="openDialog()">
+                                    <mat-icon aria-label="Example icon-button with a heart icon">folder_open</mat-icon>
+                                </button>
+                            </div>                                
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign="space-around center" fxFlex="1 0 auto">
+                            <div fxLayout="column" fxLayoutAlign="space-around center">
+                                <p class = "" >URL Sent</p>
+                                <button mat-fab>
+                                    <mat-icon aria-label="Example icon-button with a heart icon">check</mat-icon>
+                                </button>
+                            </div>                  
+                        </div>
+                    </div>
+                </div>
+            </div>               
+        </div>
+        <div fxLayout="column" fxLayoutAlign="start" fxLayout.gt-md="row" class = "mt-20">
+                <div fxLayout="row" fxLayoutAlign="center stretch" fxFlex="1 0 auto">                   
+                    <div class = "mat-card" fxFlex = "100">
+                        <div fxLayout="row" fxLayoutAlign="start center" class = "m-20" fxFlex="1 0 auto">
+                            <mat-form-field appearance="outline" fxFlex="100">
+                                <mat-label>Notes</mat-label>
+                                <textarea matInput  required [(ngModel)] = "inConnection.notes" rows = "10" class="notes"></textarea>                               
+                            </mat-form-field>
+                            <button mat-raised-button class = "mr-20 ml-20" (click) ="updateInConnectionNotes()">Save</button>      
+                        </div>
+                        <!-- <div fxLayout="row" class = "" fxLayoutAlign="center center" fxFlex="1 0 auto">
+                                             
+                        </div>         -->
+                    </div>                   
+                </div>               
+            </div>
+        <div fxLayout="column" fxLayoutAlign="start" fxLayout.gt-md="row" class = "mat-card mt-40">
+            <chat></chat>
+        </div>          
+    </div>
+    <!-- / CONTENT -->    
+</div>
+
+    
+    

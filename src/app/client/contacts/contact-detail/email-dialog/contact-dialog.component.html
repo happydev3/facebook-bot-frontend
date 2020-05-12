@@ -1,0 +1,11 @@
+<div mat-dialog-content>
+    <h1 mat-dialog-title>Select Email Template</h1>   
+    <mat-form-field style = "width: 100%;">          
+        <mat-select [(ngModel)]="selectedTemplateId"  >
+            <mat-option *ngFor="let template of templates" [value]="template.id">{{template.sub_title}}</mat-option>                    
+        </mat-select>    
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+        <button mat-raised-button class = "mr-20" (click) ="sendEmailFromTemplate()" [disabled] = "!selectedTemplateId">Send</button> 
+</div>

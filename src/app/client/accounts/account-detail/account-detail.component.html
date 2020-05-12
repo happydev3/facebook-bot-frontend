@@ -1,0 +1,94 @@
+<div id="forms" class="page-layout simple fullwidth" fxLayout="column">
+      
+        <!-- CONTENT -->
+        <div class="content p-24">
+            <div class="h1" style="text-align: center;">
+               Accounts
+            </div>        
+            <div class="mb-24 mt-20" fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-md="row">
+                <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+                    <div appearance="outline" fxFlex="30" class="pr-4 ml-40">
+                    <div class="fuse-card">
+                        <div class="p-16">
+                            <div class="h1">Team Member 1 </div>                            
+                        </div>
+
+                        <div class="p-16 pt-0" fxLayout="row" fxLayoutAlign="space-between center">
+                            <div fxLayout="row" fxLayoutAlign="start start">
+                                <span class="font-weight-300 font-size-72 line-height-72">1200</span>
+                                <span class="font-weight-30 font-size-12 line-height-48 ml-8 mt-28">connections</span>                               
+                            </div>
+                           
+                        </div>                       
+
+                        <div class="card-divider"></div>
+                        <div class="p-16 pt-4">
+                            <div class="mb-12" fxLayout="row" fxLayoutAlign="space-between center">
+                                <div>Connections</div>
+                                <div fxLayout="row" fxLayoutAlign="start center">                                   
+                                    <div class="secondary-text">2435</div>                                    
+                                </div>
+                            </div>
+                            <div class="mb-12" fxLayout="row" fxLayoutAlign="space-between center">
+                                <div>Spark</div>
+                                <div fxLayout="row" fxLayoutAlign="start center">                                   
+                                    <div class="secondary-text">876</div>                                    
+                                </div>
+                            </div>
+                            <div class="mb-12" fxLayout="row" fxLayoutAlign="space-between center">
+                                <div>Burning Hot</div>
+                                <div fxLayout="row" fxLayoutAlign="start center">                                   
+                                    <div class="secondary-text">212</div>                                    
+                                </div>
+                            </div>
+                            <div class="mb-12" fxLayout="row" fxLayoutAlign="space-between center">
+                                <div>Others</div>
+                                <div fxLayout="row" fxLayoutAlign="start center">                                   
+                                    <div class="secondary-text">100</div>                                    
+                                </div>
+                            </div>
+                           
+                        </div>
+                        </div>
+                    </div>
+                    <div appearance="outline" fxFlex="70" class="pr-4">
+                        <div class="main-widget">
+                            <div class="position-relative p-24 blue-600"
+                                    fxLayout="row" fxLayoutAlign="space-between left">                                
+                                <div fxLayout="row" fxLayoutAlign="start center">
+                                    <div class="py-8 px-12 border-radius-2 line-height-1 mr-8 cursor-pointer"
+                                            (click)="widget1SelectedYear = '2016'"
+                                            [ngClass]="{'blue-700': widget1SelectedYear === '2016'}">
+                                        2017
+                                    </div>
+                                    <div class="py-8 px-12 border-radius-2 line-height-1 mr-8 cursor-pointer"
+                                            (click)="widget1SelectedYear = '2017'"
+                                            [ngClass]="{'blue-700': widget1SelectedYear === '2017'}">
+                                        2018
+                                    </div>
+                                    <div class="py-8 px-12 border-radius-2 line-height-1 cursor-pointer"
+                                            (click)="widget1SelectedYear = '2018'"
+                                            [ngClass]="{'blue-700': widget1SelectedYear === '2018'}">
+                                        2019
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-relative h-256 pb-16 blue-600">
+                                <canvas baseChart
+                                        [datasets]="widget1.datasets[widget1SelectedYear]"
+                                        [labels]="widget1.labels"
+                                        [colors]="widget1.colors"
+                                        [options]="widget1.options"
+                                        [chartType]="widget1.chartType">
+                                </canvas>
+                            </div>
+                        </div>                            
+                    </div>                           
+                </div>              
+            </div>       
+        </div>
+        <!-- / CONTENT -->
+    </div>
+    
+    
+    

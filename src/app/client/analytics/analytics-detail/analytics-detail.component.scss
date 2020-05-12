@@ -1,0 +1,22 @@
+:host {
+
+    .content {
+
+        form {
+            width: 100%;
+            max-width: 1000px !important;
+        }
+
+        .form-errors-model {
+            flex: 1;
+
+            code {
+                background: none !important;
+            }
+        }        
+    }
+}
+.main-widget {
+    display: flex;
+    flex-direction: column;
+}
